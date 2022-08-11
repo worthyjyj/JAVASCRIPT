@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        .yj{
+            font-weight: bold;
+            color: cadetblue;
+        }
+        #hey{ 
+            color: violet; 
+        }
+        span{
+            color: chartreuse; 
+        }
+        </style>
+        <meta charset="UTF-8">
+        <title>자바스크립트의 세계로!!</title>
+    </head>
+    <body>
+        <h1><a href="ex.2.html" target="_blank">web</a></h1>
+        <input type="button" value="Night" onclick="
+        document.querySelector('body').style.backgroundColor='black';
+        document.querySelector('body').style.color='White';
+        ">
+        <input type="button" value="Day" onclick="
+        document.querySelector('body').style.backgroundColor='White';
+        document.querySelector('body').style.color='black';
+        ">
+        <input type ="button" value="night" onclick="
+        var target = document.querySelector('body');
+        if(this.value === 'night'){
+        target.style.backgroundColor='black';
+        target.style.color='White';
+        this.value='day';
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while(i < alist.length){
+            alist[i].style.color = 'powderblue';
+            i=i+1
+        }
+        }
+        
+        else{
+        target.style.backgroundColor='White';
+        target.style.color='black';
+        this.value='night';
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while(i < alist.length){
+            alist[i].style.color = 'blue';
+            i=i+1
+        }
+        }
+        ">
+        <h3>
+            <ol>
+                <li><a href="ex1.html">하이루</a></li>
+                <li><a href="ex.2.html">방가방가</a></li>
+                <li><a href="ex3.html">누구세열</a></li>
+            </ol>
+        </h3>
+
+        <h2 style="background-color:aquamarine ; color: crimson">JavaScript</h2>
+        <p>
+        안녕하세여 저는 <span class="yj" id="hey">이영진</span>이라고 합니다. 지금은 자바스크립트를 열심히 공부하는 중이고요, 지금은 자바스크립트를 열심히 공부하는 중이고요 <span class="yj">이영진</span> 지금은 자바스크립트를 열심히 공부하는 중이고요 <span>뭐</span>,, 돈도  <span class="yj">이영진</span> 지금은 자바스크립트를 열심히 공부하는 중이고요
+        </p>
+        <input type ="button" value="night" onclick="
+        var target = document.querySelector('body');
+        if(this.value === 'night'){
+        target.style.backgroundColor='black';
+        target.style.color='White';
+        this.value='day';
+        }
+        else{
+        target.style.backgroundColor='White';
+        target.style.color='black';
+        this.value='night';
+        }
+        ">
+
+</body>
+</html>
