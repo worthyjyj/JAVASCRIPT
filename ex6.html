@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Object</h1>
+        <h2>Create</h2>
+        <script>
+            //객체 생성 
+            var coworkers = {
+               "programmer" : "egoing", // programmer는 키값(객체안에서도 분류되는). egoing은 그 인덱스?값
+               "designer" : "leezhe"
+            };
+        document.write("programmer: " + coworkers.programmer+"<br>");
+        document.write("designer: " + coworkers.designer+"<br>");
+        coworkers.bookkeeper = "duru"; //이렇게 객체 데이터 추가도 가능! 
+        document.write("bookkeeper: " + coworkers.bookkeeper+"<br>");
+        coworkers["Data scientist"]= "taeho"; //이름에 띄어쓰기가 들어갈경우 이렇게 배열의 인덱스처럼 대괄호로 묶기. 
+        document.write("Data sientist: " + coworkers["Data scientist"]+"<br>");
+        </script>
+        <h2>iterate<!--반복해서 객체 데이터 다 가져오기--></h2>
+        <script>
+           for(var key in coworkers){
+             document.write(key+"<br>"); //객체 내에 모든 키 값 출력
+           } 
+           
+           for(var key in coworkers){
+             document.write(coworkers[key]+"<br>"); //키값에 들어있는 모든 인덱스값 출력
+           } 
+
+           for(var key in coworkers){
+             document.write(key+ " : " +coworkers[key]+"<br>"); //키값, 인덱스값? 모두 출력 
+           } 
+        </script>
+        <h2>Property & Method</h2>
+        <script>
+            coworkers.showAll = function() { 
+                for(var key in this){
+             document.write(key+ " : " +this[key]+"<br>"); 
+           } 
+            }
+            coworkers.showAll(); //showall 메소드 자체도 객체 내에 생성한 키값이기 때문에 같이 출력됨. 
+
+            //function showAll(){}
+            //객체 내 변수들을 프로퍼티라고 함. 
+        </script>
+    </body>
+</html>
