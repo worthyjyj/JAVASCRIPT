@@ -5,23 +5,25 @@ if(self.value === 'night'){
 target.style.backgroundColor='black';
 target.style.color='White';
 self.value='day';
-var alist = document.querySelectorAll('a');
-var i = 0;
-while(i < alist.length){
-    alist[i].style.color = 'powderblue';
-    i=i+1
-}
+// var alist = document.querySelectorAll('a');
+// var i = 0;
+// while(i < alist.length){
+//     alist[i].style.color = 'powderblue';
+//     i=i+1
+// }
+$('a').css('color', "powderblue");
 }
 
 else{
 target.style.backgroundColor='White';
 target.style.color='black';
 self.value='night';
-var alist = document.querySelectorAll('a');
-var i = 0;
-while(i < alist.length){
-    alist[i].style.color = 'blue';
-    i=i+1
-}
+// var alist = document.querySelectorAll('a');
+// var i = 0;
+// while(i < alist.length){
+//     alist[i].style.color = 'blue';
+//     i=i+1
+// }
+$('a').css('color', "red");
 }
 }
