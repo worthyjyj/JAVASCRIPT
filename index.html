@@ -3,17 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="main.css"> <!--UI디자인 css 시트 링크 걸기-->
 </head>
 <body>
-    <h1 id="hello">안녕하세요</h1>
-    <h1 id="hi">JS 초보예요</h1>
-
-    <script> //자바스크립트는 script태그 안에서 작성해야함 (주석처리는 ctrl+/)
-    document.getElementById('hello').innerHTML = '안녕';
-    document.getElementById('hi').innerHTML = 'JS 고수예요';
-    document.getElementById("hello").style.fontSize = "16px";
-    document.getElementById("hi").style.fontSize = "16px";
-    </script>
-
+    
+    <div class="alert-box" id="alert">알림창임
+        <button onclick="document.getElementById('alert').style.display = 'none'">닫기</button>
+    </div>
+    <button onclick="document.getElementById('alert').style.display = 'block'">버튼</button>
 </body>
 </html>
