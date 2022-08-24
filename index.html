@@ -8,8 +8,21 @@
 <body>
     
     <div class="alert-box" id="alert">알림창임
-        <button onclick="document.getElementById('alert').style.display = 'none'">닫기</button>
+        <button onclick="알림창닫기()">닫기</button>
     </div>
-    <button onclick="document.getElementById('alert').style.display = 'block'">버튼</button>
+    <button onclick="알림창열기()">버튼</button>
+
+    <script>
+
+        function 알림창열기(){
+            document.getElementById('alert').style.display = 'block';
+        }//함수:긴코드 축약하고 싶을 때 씀.
+
+        function 알림창닫기(){
+            document.getElementById('alert').style.display = 'none';
+        }
+
+        
+    </script>
 </body>
 </html>
