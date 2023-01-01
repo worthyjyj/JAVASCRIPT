@@ -37,7 +37,7 @@
 <script>
     //현재 날짜 구하는 함수
     function getToday(){
-    date = new Date();
+    var date = new Date();
     var year = date.getFullYear();
     var month = ("0" + (1 + date.getMonth())).slice(-2);
     var day = ("0" + date.getDate()).slice(-2);
@@ -64,6 +64,10 @@ function getDateparam(date){
 }
 
 window.onload = function(){
+
+    document.querySelector('#counterTitle').onclick = () => {
+        location.reload();
+    }
     today = getToday(); 
     console.log(today)
     
@@ -72,10 +76,15 @@ window.onload = function(){
 
      // 날짜 구하기 버튼 이벤트 후 input date값 가져오기 
     btn1.onclick = () =>{
+    document.querySelector('#result').style.color = 'black';
     dd = document.querySelector('#id_date').value; 
     console.log(dd); 
     
-    //날짜 차이 일수 구하는 메소드 호출 
+    if(dd == ""){
+        document.querySelector('#result').style.color = 'red';
+        document.querySelector('#result').innerHTML = '날짜를 입력해주세요';
+    }else{
+         //날짜 차이 일수 구하는 메소드 호출 
     const result = getDateDiff(today,dd);
     console.log(result);
 
@@ -86,18 +95,33 @@ window.onload = function(){
         span.innerHTML = result+'일 남았습니다';
     }
     }
+    }
+    
+   
 
+    //오늘날짜에서 날짜 일수 계산해주는 버튼 이벤트 
     btn2.onclick = () => {
-      let num = document.querySelector('#getDayText').value
-      number = parseInt(num)
+        let num = document.querySelector('#getDayText').value
+        let number = parseInt(num); 
+        if(num == ""){
+            document.querySelector('#result').style.color = 'red';
+            document.querySelector('#result').innerHTML = '숫자를 입력해주세요';
+            return;
+            
+        }else{
+            document.querySelector('#result').style.color = 'black';
+            var date = new Date(); 
 
-      notyet = date.setDate(date.getDate() + number);
-      dt = new Date(notyet);
-      result2 = getDateparam(dt);
+            notyet = date.setDate(date.getDate() + number);
+            dt = new Date(notyet);
+            result2 = getDateparam(dt);
 
-      console.log(result2); 
+            console.log(result2); 
 
-    document.querySelector('#result').innerHTML = result2
+            document.querySelector('#result').innerHTML = result2
+            document.querySelector('#getDayText').value = null; 
+        }
+            
     }
     }
     
@@ -126,7 +150,7 @@ window.onload = function(){
             </tr>
             <tr>
                 <td>
-                    <input type="number" id="getDayText">
+                    <input type="number" id="getDayText"/>
                 </td>
                 <td>
                     <button id="getDayBtn">날짜 구하기</button>
