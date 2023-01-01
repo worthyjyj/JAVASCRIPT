@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #counterTitle:hover {
+            cursor: pointer;
+            color:blue !important;
+        }
+
+        button:hover {
+            color: blue !important;
+        }
+
+        table, table tr, table td, table th, input{
+            border-radius: 3px;
+        }
+
+        th{
+            background-color: #f1f1f1;
+        }
+
+        th:hover {
+            background-color: #bdbdbd;
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+           color:red ;
+        }
+    </style>
+</head>
+<script>
+    //현재 날짜 구하는 함수
+    function getToday(){
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = ("0" + (1 + date.getMonth())).slice(-2);
+    var day = ("0" + date.getDate()).slice(-2);
+
+    return year + "-" + month + "-" + day;
+}
+
+// 두 날짜 사이의 일수 구하기 
+const getDateDiff = (d1, d2) => {
+  const date1 = new Date(d1);
+  const date2 = new Date(d2);
+  
+  const diffDate = date1.getTime() - date2.getTime();
+  
+  return Math.abs(diffDate / (1000 * 60 * 60 * 24)); // 밀리세컨 * 초 * 분 * 시 = 일
+}
+
+window.onload = function(){
+    today = getToday(); 
+    console.log(today)
+    
+    btn1 = document.querySelector('#btn');
+    btn2 = document.querySelector('#getDayBtn');
+
+     // 날짜 구하기 버튼 이벤트 후 input date값 가져오기 
+    btn1.onclick = () =>{
+    dd = document.querySelector('#id_date').value; 
+    console.log(dd); 
+    
+    //날짜 차이 일수 구하는 메소드 호출 
+    const result = getDateDiff(today,dd);
+    console.log(result);
+
+    input = document.querySelector('#getDayText');
+    input.value = result;
+    }
+
+    }
+    
+</script>
+
+<body>
+    <div class="container">
+        <table style="text-align: center;" border="1px; solid">
+            <tr>
+                <th colspan="2">
+                    <h1 id="counterTitle" title="초기화">D-Day Counter</h1>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="date" name="date" id="id_date">
+                </td>
+                <td>
+                    <button id="btn">날짜 구하기</button>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <span>오늘로부터 며칠?</span>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" id="getDayText">
+                </td>
+                <td>
+                    <button id="getDayBtn">날짜 구하기</button>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    결과
+                </th>
+            </tr>
+            <tr>
+                <td colspan="2" style="height: 20px;">
+                    <span id="result"></span>
+                </td>
+            </tr>
+        </table>
+    </div> 
+</body>
+</html>
+
