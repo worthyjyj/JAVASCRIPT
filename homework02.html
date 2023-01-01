@@ -37,7 +37,7 @@
 <script>
     //현재 날짜 구하는 함수
     function getToday(){
-    var date = new Date();
+    date = new Date();
     var year = date.getFullYear();
     var month = ("0" + (1 + date.getMonth())).slice(-2);
     var day = ("0" + date.getDate()).slice(-2);
@@ -53,6 +53,14 @@ const getDateDiff = (d1, d2) => {
   const diffDate = date1.getTime() - date2.getTime();
   
   return Math.abs(diffDate / (1000 * 60 * 60 * 24)); // 밀리세컨 * 초 * 분 * 시 = 일
+}
+
+//일자 구하기 함수 
+function getDateparam(date){
+    var year = date.getFullYear(); 
+    var month = date.getMonth()+1; 
+    var date = date.getDate(); 
+    return year + '년 ' + month + '월 ' + date +'일 입니다!' 
 }
 
 window.onload = function(){
@@ -71,10 +79,26 @@ window.onload = function(){
     const result = getDateDiff(today,dd);
     console.log(result);
 
-    input = document.querySelector('#getDayText');
-    input.value = result;
+    span = document.querySelector('#result');
+    if(today>dd){
+        span.innerHTML = result+'일 지났습니다';
+    }else{
+        span.innerHTML = result+'일 남았습니다';
+    }
     }
 
+    btn2.onclick = () => {
+      let num = document.querySelector('#getDayText').value
+      number = parseInt(num)
+
+      notyet = date.setDate(date.getDate() + number);
+      dt = new Date(notyet);
+      result2 = getDateparam(dt);
+
+      console.log(result2); 
+
+    document.querySelector('#result').innerHTML = result2
+    }
     }
     
 </script>
